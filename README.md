@@ -1,2 +1,3 @@
 # Symptom-Manager-with-Chatbot
 #Symptom Manager with Chatbot is an app that one may have a conversation with a chatbot who helps them determine if they should go to their primary care doctor, urgent care, or emergency department based on their symptoms, vital signs, and health questions.
+#This project will introduce a symptom checker chatbot application for mobile devices and computers.  Individuals using this application will be asked health-related questions prompting them to provide their symptoms.  This chatbot application will respond with recommendations on what the individual needs to do when they submit their symptoms.  Recommendations will consist of possible diagnosis or advise the individuals to got to the an urgent care or emeregency department.
