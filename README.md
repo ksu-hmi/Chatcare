@@ -10,7 +10,7 @@ RUNNING THE CODE
 
 As part of this process, it is required to import packages like pandas, scikit.learn, pyttsx3. Using "pip install" in your terminal, you should be able to download these packages. Likewise, edits to the code referring to your path need to be made to run the code's CSV files. Using "copy path" in your file system can help guide you in fixing path errors.
 
-Contributing to this project by:
+Contribute to this project by:
 1. Fork the repository
 2. Create a branch for your updates
 3. Make changes and commit
