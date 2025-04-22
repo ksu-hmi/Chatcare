@@ -12,7 +12,8 @@ import csv
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-
+#In this section, the Testing.csv and Training.csv must be updated to show your file path in Visual Studio Code before the code will run. 
+#For example, training = pd.read_csv(r"C:\Users\pathname\Python\Chatcare\Training.csv"). 
 training = pd.read_csv('Data/Training.csv')
 testing= pd.read_csv('Data/Testing.csv')
 cols= training.columns
