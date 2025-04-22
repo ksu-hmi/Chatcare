@@ -1,3 +1,4 @@
+#This first section is meant to import packages needed for this code like pandas, pyttsx3, and scikit.learn
 import re
 import pandas as pd
 import pyttsx3
