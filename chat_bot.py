@@ -15,6 +15,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 #In this section, the Testing.csv and Training.csv must be updated to show your file path in Visual Studio Code before the code will run. 
 #For example, training = pd.read_csv(r"C:\Users\pathname\Python\Chatcare\Training.csv"). 
 #This second section reads training and testing data from those csv files
+#pd.read_csv is a function in panadas that is used to read data from CSV Files into a pandas DataFrame
 training = pd.read_csv('Data/Training.csv')
 testing= pd.read_csv('Data/Testing.csv')
 cols= training.columns
@@ -27,6 +28,9 @@ y1= y
 reduced_data = training.groupby(training['prognosis']).max()
 
 #mapping strings to numbers
+#Using scikit.learn this section begins the preprocessing step by Label Encoding 
+#Label Encoding is used to convert categorical columns into numerical ones
+#Machine learning models can only use numerical numbers
 le = preprocessing.LabelEncoder()
 le.fit(y)
 y = le.transform(y)
