@@ -68,6 +68,9 @@ def readn(nstr):
     engine.setProperty('voice', "english+f5")
     engine.setProperty('rate', 130)
 
+#The engine.say(nstr) prompts for the text-to-speech.
+#say(nstr) won't be spoken, it is just queuing the code.
+#The engine.runAndWait() tells the code to process and is queued to be spoken.
     engine.say(nstr)
     engine.runAndWait()
     engine.stop()
