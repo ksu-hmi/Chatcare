@@ -89,7 +89,7 @@ def calc_condition(exp,days):
         print("It might not be that bad but you should take precautions.")
 
 
-In this section, the Description.csv must be updated to show your file path in Visual Studio Code before the code will run. 
+#In this section, the Description.csv must be updated to show your file path in Visual Studio Code before the code will run. 
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_Description.csv"). 
 def getDescription():
     global description_list
