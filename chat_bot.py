@@ -60,6 +60,8 @@ importances = clf.feature_importances_
 indices = np.argsort(importances)[::-1]
 features = cols
 
+#The pyttsx3 using Python provides a text-to-speech conversion library.  
+#In this case the engine = pyttsx3.init() initializes the TTS engine.
 def readn(nstr):
     engine = pyttsx3.init()
 
