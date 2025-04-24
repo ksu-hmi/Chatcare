@@ -126,10 +126,10 @@ def getSeverityDict():
 
 #In this section, the file that connects symptoms with their precautions is brought into the global dictionary.
 # A path is created for symptom/severity pairs for easy access.
-def getprecautionDict():
-    global precautionDictionary
 #In this section, the symptom_precaution.csv must be updated to show your file path in Visual Studio Code before the code will run. 
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_precaution.csv"). 
+def getprecautionDict():
+    global precautionDictionary
     with open('MasterData/symptom_precaution.csv') as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
