@@ -35,7 +35,6 @@ le = preprocessing.LabelEncoder()
 le.fit(y)
 y = le.transform(y)
 
-
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.33, random_state=42)
 testx    = testing[cols]
 testy    = testing['prognosis']  
@@ -50,7 +49,6 @@ clf = clf1.fit(x_train,y_train)
 scores = cross_val_score(clf, x_test, y_test, cv=3)
 # print (scores)
 print (scores.mean())
-
 
 model=SVC()
 model.fit(x_train,y_train)
@@ -95,7 +93,6 @@ def calc_condition(exp,days):
     else:
         print("It might not be that bad but you should take precautions.")
 
-
 #In this section, the symptom_Description.csv must be updated to show your file path in Visual Studio Code before the code will run. 
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_Description.csv"). 
 def getDescription():
@@ -106,7 +103,6 @@ def getDescription():
         for row in csv_reader:
             _description={row[0]:row[1]}
             description_list.update(_description)
-
 
 #In this section, the symptom_severity file is brought into the global dictionary.
 # A path is created for symptom/severity pairs for easy access.
@@ -140,7 +136,7 @@ def getprecautionDict():
 #In this section, the user enters their name and the ChatBot in return greets the user. 
 def getInfo():
     print("-----------------------------------HealthCare ChatBot-----------------------------------")
-    print("\nYour Name? \t\t\t\t",end="->")
+    print("\nPlease Enter Your Name? \t\t\t\t",end="->")
     name=input("")#user name input
     print("Hello, ",name) #return greeting
     return name
@@ -175,7 +171,6 @@ def sec_predict(symptoms_exp):
       input_vector[[symptoms_dict[item]]] = 1
 
     return rf_clf.predict([input_vector])
-
 
 def print_disease(node):
     node = node[0]
