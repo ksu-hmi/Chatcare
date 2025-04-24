@@ -140,7 +140,7 @@ def getprecautionDict():
 #In this section, the user enters their name and the ChatBot in return greets the user. 
 def getInfo():
     print("-----------------------------------HealthCare ChatBot-----------------------------------")
-    print("\nYour Name? \t\t\t\t",end="->")
+    print("\nPlease Enter Your Name? \t\t\t\t",end="->")
     name=input("")#user name input
     print("Hello, ",name) #return greeting
     return name
