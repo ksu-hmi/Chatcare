@@ -1,3 +1,4 @@
+#This first section is meant to import packages needed for this code like pandas, pyttsx3, and scikit.learn
 import re
 import pandas as pd
 import pyttsx3
@@ -14,6 +15,12 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 training = pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Training.csv")
 testing= pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Testing.csv")
+#In this section, the Testing.csv and Training.csv must be updated to show your file path in Visual Studio Code before the code will run. 
+#For example, training = pd.read_csv(r"C:\Users\pathname\Python\Chatcare\Training.csv"). 
+#This second section reads training and testing data from those csv files
+#pd.read_csv is a function in panadas that is used to read data from CSV Files into a pandas DataFrame
+training = pd.read_csv('Data/Training.csv')
+testing= pd.read_csv('Data/Testing.csv')
 cols= training.columns
 cols= cols[:-1]
 x = training[cols]
@@ -24,6 +31,9 @@ y1= y
 reduced_data = training.groupby(training['prognosis']).max()
 
 #mapping strings to numbers
+#Using scikit.learn this section begins the preprocessing step by Label Encoding 
+#Label Encoding is used to convert categorical columns into numerical ones
+#Machine learning models can only use numerical numbers
 le = preprocessing.LabelEncoder()
 le.fit(y)
 y = le.transform(y)
@@ -53,21 +63,27 @@ importances = clf.feature_importances_
 indices = np.argsort(importances)[::-1]
 features = cols
 
+#The pyttsx3 using Python provides a text-to-speech conversion library.  
+#In this case the engine = pyttsx3.init() initializes the TTS engine.
 def readn(nstr):
     engine = pyttsx3.init()
 
     engine.setProperty('voice', "english+f5")
     engine.setProperty('rate', 130)
 
+#The engine.say(nstr) prompts for the text-to-speech.
+#say(nstr) won't be spoken, it is just queuing the code.
+#The engine.runAndWait() tells the code to process and is queued to be spoken.
     engine.say(nstr)
     engine.runAndWait()
     engine.stop()
 
-
+#These lines create empty dictionaries.
+#Each dictionary pulled has the potential to store different types of information related to the reported symptom.
 severityDictionary=dict()
 description_list = dict()
 precautionDictionary=dict()
-
+#symptoms_dict is where the symptoms are stored, and the value is stored.
 symptoms_dict = {}
 
 for index, symptom in enumerate(x):
@@ -82,6 +98,8 @@ def calc_condition(exp,days):
         print("It might not be that bad but you should take precautions.")
 
 
+#In this section, the symptom_Description.csv must be updated to show your file path in Visual Studio Code before the code will run. 
+#For example, (r"C:\Users\pathname\Python\Chatcare\symptom_Description.csv"). 
 def getDescription():
     global description_list
     with open(r"C:\Users\tabby\Desktop\Python\Chatcare\symptom_Description.csv") as csv_file:
@@ -92,8 +110,10 @@ def getDescription():
             description_list.update(_description)
 
 
-
-
+#In this section, the symptom_severity file is brought into the global dictionary.
+# A path is created for symptom/severity pairs for easy access.
+#In this section, the symptom_severity.csv must be updated to show your file path in Visual Studio Code before the code will run. 
+#For example, (r"C:\Users\pathname\Python\Chatcare\symptom_severity.csv"). 
 def getSeverityDict():
     global severityDictionary
     with open(r"C:\Users\tabby\Desktop\Python\Chatcare\Symptom_severity.csv") as csv_file:
@@ -107,7 +127,8 @@ def getSeverityDict():
         except:
             pass
 
-
+#In this section, the file that connects symptoms with their precautions is brought into the global dictionary.
+# A path is created for symptom/severity pairs for easy access.
 def getprecautionDict():
     global precautionDictionary
     with open(r"C:\Users\tabby\Desktop\Python\Chatcare\symptom_precaution.csv") as csv_file:
@@ -118,12 +139,12 @@ def getprecautionDict():
             _prec={row[0]:[row[1],row[2],row[3],row[4]]}
             precautionDictionary.update(_prec)
 
-
+#In this section, the user enters their name and the ChatBot in return greets the user. 
 def getInfo():
     print("-----------------------------------HealthCare ChatBot-----------------------------------")
     print("\nYour Name? \t\t\t\t",end="->")
-    name=input("")
-    print("Hello, ",name)
+    name=input("")#user name input
+    print("Hello, ",name) #return greeting
 
 def check_pattern(dis_list,inp):
     pred_list=[]
@@ -135,6 +156,9 @@ def check_pattern(dis_list,inp):
         return 1,pred_list
     else:
         return 0,[]
+    
+#Utilizes Decision Tree Classifier to predict condition based on symptoms by reading the Training file. 
+#This code splits dataset into features and labels, assigns features to X and labels to Y. 
 def sec_predict(symptoms_exp):
     df = pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Training.csv")
     X = df.iloc[:, :-1]
@@ -142,7 +166,8 @@ def sec_predict(symptoms_exp):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=20)
     rf_clf = DecisionTreeClassifier()
     rf_clf.fit(X_train, y_train)
-
+#Binary vector (xX's and Y's) that represent user input are compared to the symptoms dictionary in this step. 
+#Prognosis is predicted based on user input. 
     symptoms_dict = {symptom: index for index, symptom in enumerate(X)}
     input_vector = np.zeros(len(symptoms_dict))
     for item in symptoms_exp:

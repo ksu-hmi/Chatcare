@@ -2,29 +2,29 @@ Project Road Map-Tabatha Clifton, Jennifer Millan, Cassi Proctor
 
 Sprint #1:\
 
--[x] Brainstorm topics (JM, CP, & TC)
+-[Done] Brainstorm topics (JM, CP, & TC)
 
--[x] Select topic (JM, CP, & TC)
+-[Done] Select topic (JM, CP, & TC)
 
--[x] Create GitHub accounts (JM, CP, & TC)
+-[Done] Create GitHub accounts (JM, CP, & TC)
 
--[x] Accept KSU-HMI invitation (JM, CP, & TC)
+-[Done] Accept KSU-HMI invitation (JM, CP, & TC)
 
--[x] Find related repository and evaluate it (JM, CP, & TC)
+-[Done] Find related repository and evaluate it (JM, CP, & TC)
 
--[x] Read code from related repository and attempt to run it (JM)
+-[Done] Read code from related repository and attempt to run it (JM)
 
--[x] Create own repository for group project (CP)
+-[Done] Create own repository for group project (CP)
 
--[x] Add administrators to repository (CP)
+-[Done] Add administrators to repository (CP)
 
--[x] Add README.md file (CP)
+-[Done] Add README.md file (CP)
 
--[x] Each member commits changes to the README.md file (JM, CP, & TC)
+-[Done] Each member commits changes to the README.md file (JM, CP, & TC)
 
--[x] Add projectroadmap.md file in project repository (CP)
+-[Done] Add projectroadmap.md file in project repository (CP)
 
--[x] Each member commits changes to the projectroadmap.md file (JM, CP, & TC)
+-[Done] Each member commits changes to the projectroadmap.md file (JM, CP, & TC)
 
 Sprint #2: \
 
