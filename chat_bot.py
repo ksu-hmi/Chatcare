@@ -106,7 +106,8 @@ def getDescription():
             description_list.update(_description)
 
 
-
+#In this section, the symptom_severity file is brought into the global dictionary.
+# A path is created for symptom/severity pairs for easy access.
 
 def getSeverityDict():
     global severityDictionary
@@ -121,7 +122,8 @@ def getSeverityDict():
         except:
             pass
 
-
+#In this section, the file that connects symptoms with their precautions is brought into the global dictionary.
+# A path is created for symptom/severity pairs for easy access.
 def getprecautionDict():
     global precautionDictionary
     with open('MasterData/symptom_precaution.csv') as csv_file:
@@ -132,12 +134,12 @@ def getprecautionDict():
             _prec={row[0]:[row[1],row[2],row[3],row[4]]}
             precautionDictionary.update(_prec)
 
-
+#In this section, the user enters their name and the ChatBot in return greets the user. 
 def getInfo():
     print("-----------------------------------HealthCare ChatBot-----------------------------------")
     print("\nYour Name? \t\t\t\t",end="->")
-    name=input("")
-    print("Hello, ",name)
+    name=input("")#user name input
+    print("Hello, ",name) #return greeting
 
 def check_pattern(dis_list,inp):
     pred_list=[]
@@ -149,6 +151,9 @@ def check_pattern(dis_list,inp):
         return 1,pred_list
     else:
         return 0,[]
+    
+#Utilizes Decision Tree Classifier to predict condition based on symptoms by reading the Training file. 
+#This code splits dataset into features and labels, assigns features to X and labels to Y. 
 def sec_predict(symptoms_exp):
     df = pd.read_csv('Data/Training.csv')
     X = df.iloc[:, :-1]
@@ -156,7 +161,8 @@ def sec_predict(symptoms_exp):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=20)
     rf_clf = DecisionTreeClassifier()
     rf_clf.fit(X_train, y_train)
-
+#Binary vector (xX's and Y's) that represent user input are compared to the symptoms dictionary in this step. 
+#Prognosis is predicted based on user input. 
     symptoms_dict = {symptom: index for index, symptom in enumerate(X)}
     input_vector = np.zeros(len(symptoms_dict))
     for item in symptoms_exp:
