@@ -12,9 +12,6 @@ import csv
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-
-training = pd.read_csv('Data/Training.csv')
-testing= pd.read_csv('Data/Testing.csv')
 #In this section, the Testing.csv and Training.csv must be updated to show your file path in Visual Studio Code before the code will run. 
 #For example, training = pd.read_csv(r"C:\Users\pathname\Python\Chatcare\Training.csv"). 
 #This section reads training and testing data from those csv files
@@ -94,7 +91,7 @@ def calc_condition(exp,days):
     for item in exp:
          sum=sum+severityDictionary[item]
     if((sum*days)/(len(exp)+1)>13):
-        print("You should take the consultation from doctor. ")
+        print("You should take the consultation from doctor. Please consider visiting one of three: Primary Care, Urgent care, or ER")
     else:
         print("It might not be that bad but you should take precautions.")
 
