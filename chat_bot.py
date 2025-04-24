@@ -14,7 +14,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 #In this section, the Testing.csv and Training.csv must be updated to show your file path in Visual Studio Code before the code will run. 
 #For example, training = pd.read_csv(r"C:\Users\pathname\Python\Chatcare\Training.csv"). 
-#This second section reads training and testing data from those csv files
+#This section reads training and testing data from those csv files
 #pd.read_csv is a function in panadas that is used to read data from CSV Files into a pandas DataFrame
 training = pd.read_csv('Data/Training.csv')
 testing= pd.read_csv('Data/Testing.csv')
@@ -41,7 +41,8 @@ testx    = testing[cols]
 testy    = testing['prognosis']  
 testy    = le.transform(testy)
 
-
+#This section runs a machine learning algorithm for classification tasks
+#Therefore creating a decision tree to help solve problems and display relations
 clf1  = DecisionTreeClassifier()
 clf = clf1.fit(x_train,y_train)
 # print(clf.score(x_train,y_train))
