@@ -257,7 +257,7 @@ def tree_to_code(tree, feature_names):
                     if(inp=="yes" or inp=="no"):
                         break
                     else:
-                        print("provide proper answers i.e. (yes/no) : ",end="")
+                        print("Please provide a proper answer of your symptoms i.e. (yes/no) : ",end="")
                 if(inp=="yes"):
                     symptoms_exp.append(syms)
 
