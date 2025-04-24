@@ -108,7 +108,8 @@ def getDescription():
 
 #In this section, the symptom_severity file is brought into the global dictionary.
 # A path is created for symptom/severity pairs for easy access.
-
+#In this section, the symptom_severity.csv must be updated to show your file path in Visual Studio Code before the code will run. 
+#For example, (r"C:\Users\pathname\Python\Chatcare\symptom_severity.csv"). 
 def getSeverityDict():
     global severityDictionary
     with open('MasterData/symptom_severity.csv') as csv_file:
