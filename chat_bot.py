@@ -13,8 +13,8 @@ import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
-training = pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Training.csv")
-testing= pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Testing.csv")
+training = pd.read_csv('Data/Training.csv')
+testing= pd.read_csv('Data/Testing.csv')
 #In this section, the Testing.csv and Training.csv must be updated to show your file path in Visual Studio Code before the code will run. 
 #For example, training = pd.read_csv(r"C:\Users\pathname\Python\Chatcare\Training.csv"). 
 #This second section reads training and testing data from those csv files
@@ -102,7 +102,7 @@ def calc_condition(exp,days):
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_Description.csv"). 
 def getDescription():
     global description_list
-    with open(r"C:\Users\tabby\Desktop\Python\Chatcare\symptom_Description.csv") as csv_file:
+    with open('MasterData/symptom_Description.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
@@ -116,7 +116,7 @@ def getDescription():
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_severity.csv"). 
 def getSeverityDict():
     global severityDictionary
-    with open(r"C:\Users\tabby\Desktop\Python\Chatcare\Symptom_severity.csv") as csv_file:
+    with open('MasterData/symptom_severity.csv') as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -131,7 +131,7 @@ def getSeverityDict():
 # A path is created for symptom/severity pairs for easy access.
 def getprecautionDict():
     global precautionDictionary
-    with open(r"C:\Users\tabby\Desktop\Python\Chatcare\symptom_precaution.csv") as csv_file:
+    with open('MasterData/symptom_precaution.csv') as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -160,7 +160,7 @@ def check_pattern(dis_list,inp):
 #Utilizes Decision Tree Classifier to predict condition based on symptoms by reading the Training file. 
 #This code splits dataset into features and labels, assigns features to X and labels to Y. 
 def sec_predict(symptoms_exp):
-    df = pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Training.csv")
+    df = pd.read_csv('Data/Training.csv')
     X = df.iloc[:, :-1]
     y = df['prognosis']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=20)
