@@ -91,7 +91,7 @@ def calc_condition(exp,days):
     for item in exp:
          sum=sum+severityDictionary[item]
     if((sum*days)/(len(exp)+1)>13):
-        print("You should take the consultation from doctor. Please consider visiting one of three: Primary Care, Urgent care, or ER")
+        print("After this many days, you should visit one of three: Primary Care, Urgent care, or ER. Recommendations on where to go exactly will be at the end of your diagnoses description.")
     else:
         print("It might not be that bad but you should take precautions.")
 
