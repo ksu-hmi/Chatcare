@@ -75,11 +75,12 @@ def readn(nstr):
     engine.runAndWait()
     engine.stop()
 
-
+#These lines create empty dictionaries.
+#Each dictionary pulled has the potential to store different types of information related to the reported symptom.
 severityDictionary=dict()
 description_list = dict()
 precautionDictionary=dict()
-
+#symptoms_dict is where the symptoms are stored, and the value is stored.
 symptoms_dict = {}
 
 for index, symptom in enumerate(x):
