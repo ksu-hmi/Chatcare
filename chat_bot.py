@@ -89,7 +89,7 @@ def calc_condition(exp,days):
     for item in exp:
          sum=sum+severityDictionary[item]
     if((sum*days)/(len(exp)+1)>13):
-        print("After this many days, you should visit one of three: Primary Care, Urgent care, or ER. Recommendations on where to go exactly will be at the end of your diagnoses description.")
+        print("After this many days, you should visit one of three: Primary Care, Urgent care, or ER. Recommendations on where to go exactly will follow.")
     else:
         print("It might not be that bad but you should take precautions.")
 
@@ -153,7 +153,7 @@ def recommend_care_facility(symptoms_exp):
 
 #In this section, the user enters their name and the ChatBot in return greets the user. 
 def getInfo():
-    print("-----------------------------------HealthCare ChatBot-----------------------------------")
+    print("-----------------------------------Welcome to Chat Care-----------------------------------")
     while True:
         name = input("\nPlease Enter Your Name? \t\t\t\t->").strip()
         if name:
