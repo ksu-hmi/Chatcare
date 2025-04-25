@@ -112,6 +112,7 @@ def getDescription():
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_severity.csv"). 
 def getSeverityDict():
     global severityDictionary
+<<<<<<< HEAD
     with open('MasterData/Symptom_severity.csv") as csv_file:
 =======
     with open('MasterData/Symptom_severity.csv') as csv_file:
