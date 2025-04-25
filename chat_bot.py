@@ -158,7 +158,7 @@ def check_pattern(dis_list,inp):
 #Utilizes Decision Tree Classifier to predict condition based on symptoms by reading the Training file. 
 #This code splits dataset into features and labels, assigns features to X and labels to Y. 
 def sec_predict(symptoms_exp):
-    df = pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Training.csv")
+    df = pd.read_csv('Data/Training.csv')
     X = df.iloc[:, :-1]
     y = df['prognosis']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=20)
