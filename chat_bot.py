@@ -17,8 +17,6 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 #For example, training = pd.read_csv(r"C:\Users\pathname\Python\Chatcare\Tra\ining.csv"). 
 #This second section reads training and testing data from those csv files
 #pd.read_csv is a function in panadas that is used to read data from CSV Files into a pandas DataFrame
-training = pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Training.csv")
-testing= pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Testing.csv")
 training = pd.read_csv('Data/Training.csv')
 testing= pd.read_csv('Data/Testing.csv')
 cols= training.columns
