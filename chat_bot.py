@@ -17,8 +17,6 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 #For example, training = pd.read_csv(r"C:\Users\pathname\Python\Chatcare\Tra\ining.csv"). 
 #This second section reads training and testing data from those csv files
 #pd.read_csv is a function in panadas that is used to read data from CSV Files into a pandas DataFrame
-training = pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Training.csv")
-testing= pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Testing.csv")
 training = pd.read_csv('Data/Training.csv')
 testing= pd.read_csv('Data/Testing.csv')
 cols= training.columns
@@ -112,11 +110,7 @@ def getDescription():
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_severity.csv"). 
 def getSeverityDict():
     global severityDictionary
-<<<<<<< HEAD
-    with open('MasterData/Symptom_severity.csv") as csv_file:
-=======
     with open('MasterData/Symptom_severity.csv') as csv_file:
->>>>>>> 496ffac3e57b57279c79f306f0cf5f636fd18058
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -164,7 +158,7 @@ def check_pattern(dis_list,inp):
 #Utilizes Decision Tree Classifier to predict condition based on symptoms by reading the Training file. 
 #This code splits dataset into features and labels, assigns features to X and labels to Y. 
 def sec_predict(symptoms_exp):
-    df = pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Training.csv")
+    df = pd.read_csv('Data/Training.csv')
     X = df.iloc[:, :-1]
     y = df['prognosis']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=20)
