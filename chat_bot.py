@@ -143,9 +143,7 @@ def getInfo():
         print("Name cannot be empty. Please try again.")
     print(f"Hello, {name}!") #return greeting
     return name
-#store user name
-username = getInfo()
-
+    
 def check_pattern(dis_list,inp):
     pred_list=[]
     inp=inp.replace(' ','_')
