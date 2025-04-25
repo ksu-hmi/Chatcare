@@ -143,7 +143,9 @@ def getInfo():
         print("Name cannot be empty. Please try again.")
     print(f"Hello, {name}!") #return greeting
     return name
-    
+#store user name
+username = getInfo()
+
 def check_pattern(dis_list,inp):
     pred_list=[]
     inp=inp.replace(' ','_')
@@ -172,6 +174,7 @@ def sec_predict(symptoms_exp):
       input_vector[[symptoms_dict[item]]] = 1
 
     return rf_clf.predict([input_vector])
+
 
 def print_disease(node):
     node = node[0]
@@ -260,6 +263,7 @@ def tree_to_code(tree, feature_names):
             second_prediction=sec_predict(symptoms_exp)
             # print(second_prediction)
             calc_condition(symptoms_exp,num_days)
+            recommend_care_facility(symptoms_exp)
             if(present_disease[0]==second_prediction[0]):
                 print("You may have ", present_disease[0])
                 print(description_list[present_disease[0]])
