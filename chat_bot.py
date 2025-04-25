@@ -97,7 +97,7 @@ def calc_condition(exp,days):
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_Description.csv"). 
 def getDescription():
     global description_list
-    with open(' MasterData/symptom_Description.csv') as csv_file:
+    with open('MasterData/symptom_Description.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
