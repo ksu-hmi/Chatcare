@@ -12,18 +12,18 @@ import csv
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
+
 #In this section, the Testing.csv and Training.csv must be updated to show your file path in Visual Studio Code before the code will run. 
-#For example, training = pd.read_csv(r"C:\Users\pathname\Python\Chatcare\Training.csv"). 
-#This section reads training and testing data from those csv files
+#For example, training = pd.read_csv(r"C:\Users\pathname\Python\Chatcare\Tra\ining.csv"). 
+#This second section reads training and testing data from those csv files
 #pd.read_csv is a function in panadas that is used to read data from CSV Files into a pandas DataFrame
-training = pd.read_csv('Data/Training.csv')
-testing= pd.read_csv('Data/Testing.csv')
+training = pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Training.csv")
+testing= pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Testing.csv")
 cols= training.columns
 cols= cols[:-1]
 x = training[cols]
 y = training['prognosis']
 y1= y
-
 
 reduced_data = training.groupby(training['prognosis']).max()
 
@@ -34,7 +34,6 @@ reduced_data = training.groupby(training['prognosis']).max()
 le = preprocessing.LabelEncoder()
 le.fit(y)
 y = le.transform(y)
-
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.33, random_state=42)
 testx    = testing[cols]
@@ -50,7 +49,6 @@ clf = clf1.fit(x_train,y_train)
 scores = cross_val_score(clf, x_test, y_test, cv=3)
 # print (scores)
 print (scores.mean())
-
 
 model=SVC()
 model.fit(x_train,y_train)
@@ -95,18 +93,16 @@ def calc_condition(exp,days):
     else:
         print("It might not be that bad but you should take precautions.")
 
-
 #In this section, the symptom_Description.csv must be updated to show your file path in Visual Studio Code before the code will run. 
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_Description.csv"). 
 def getDescription():
     global description_list
-    with open('MasterData/symptom_Description.csv') as csv_file:
+    with open(r"C:\Users\tabby\Desktop\Python\Chatcare\MasterData\symptom_Description.csv") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
             _description={row[0]:row[1]}
             description_list.update(_description)
-
 
 #In this section, the symptom_severity file is brought into the global dictionary.
 # A path is created for symptom/severity pairs for easy access.
@@ -114,7 +110,7 @@ def getDescription():
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_severity.csv"). 
 def getSeverityDict():
     global severityDictionary
-    with open('MasterData/symptom_severity.csv') as csv_file:
+    with open(r"C:\Users\tabby\Desktop\Python\Chatcare\MasterData\Symptom_severity.csv") as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -129,7 +125,7 @@ def getSeverityDict():
 # A path is created for symptom/severity pairs for easy access.
 def getprecautionDict():
     global precautionDictionary
-    with open('MasterData/symptom_precaution.csv') as csv_file:
+    with open(r"C:\Users\tabby\Desktop\Python\Chatcare\MasterData\symptom_precaution.csv") as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -140,11 +136,15 @@ def getprecautionDict():
 #In this section, the user enters their name and the ChatBot in return greets the user. 
 def getInfo():
     print("-----------------------------------HealthCare ChatBot-----------------------------------")
-    print("\nPlease Enter Your Name? \t\t\t\t",end="->")
-    name=input("")#user name input
-    print("Hello, ",name) #return greeting
+    while True:
+        name = input("\nPlease Enter Your Name? \t\t\t\t->").strip()
+        if name:
+            break
+        print("Name cannot be empty. Please try again.")
+    print(f"Hello, {name}!") #return greeting
     return name
 #store user name
+username = getInfo()
 
 def check_pattern(dis_list,inp):
     pred_list=[]
@@ -160,7 +160,7 @@ def check_pattern(dis_list,inp):
 #Utilizes Decision Tree Classifier to predict condition based on symptoms by reading the Training file. 
 #This code splits dataset into features and labels, assigns features to X and labels to Y. 
 def sec_predict(symptoms_exp):
-    df = pd.read_csv('Data/Training.csv')
+    df = pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Training.csv")
     X = df.iloc[:, :-1]
     y = df['prognosis']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=20)
@@ -175,24 +175,6 @@ def sec_predict(symptoms_exp):
 
     return rf_clf.predict([input_vector])
 
-#This code directs user where to go based on the mean severity symptom score of their symptoms. 
-
-def recommend_care_facility(symptoms_exp):
-    if not symptoms_exp:
-        print("No symptoms reported.")
-        return
-
-    total_score = sum(severityDictionary.get(symptom, 0) for symptom in symptoms_exp)
-    mean_score = total_score / len(symptoms_exp)
-
-    print(f"\nAverage severity score: {mean_score:.2f}")
-
-    if mean_score < 3:
-        print("→ Based on the severity of your symptoms, you should visit your Primary Care Provider (PCP).")
-    elif 3 <= mean_score < 5:
-        print("→ Based on the severity of your symptoms, visiting an Urgent Care Center is recommended.")
-    else:
-        print("→ Based on the severity of your symptoms, please go to the Emergency Room (ER) immediately.")
 
 def print_disease(node):
     node = node[0]
