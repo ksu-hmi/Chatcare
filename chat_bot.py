@@ -145,7 +145,6 @@ def getInfo():
     print("Hello, ",name) #return greeting
     return name
 #store user name
-username = getInfo()
 
 def check_pattern(dis_list,inp):
     pred_list=[]
@@ -176,6 +175,24 @@ def sec_predict(symptoms_exp):
 
     return rf_clf.predict([input_vector])
 
+#This code directs user where to go based on the mean severity symptom score of their symptoms. 
+
+def recommend_care_facility(symptoms_exp):
+    if not symptoms_exp:
+        print("No symptoms reported.")
+        return
+
+    total_score = sum(severityDictionary.get(symptom, 0) for symptom in symptoms_exp)
+    mean_score = total_score / len(symptoms_exp)
+
+    print(f"\nAverage severity score: {mean_score:.2f}")
+
+    if mean_score < 3:
+        print("→ Based on the severity of your symptoms, you should visit your Primary Care Provider (PCP).")
+    elif 3 <= mean_score < 5:
+        print("→ Based on the severity of your symptoms, visiting an Urgent Care Center is recommended.")
+    else:
+        print("→ Based on the severity of your symptoms, please go to the Emergency Room (ER) immediately.")
 
 def print_disease(node):
     node = node[0]
@@ -264,6 +281,7 @@ def tree_to_code(tree, feature_names):
             second_prediction=sec_predict(symptoms_exp)
             # print(second_prediction)
             calc_condition(symptoms_exp,num_days)
+            recommend_care_facility(symptoms_exp)
             if(present_disease[0]==second_prediction[0]):
                 print("You may have ", present_disease[0])
                 print(description_list[present_disease[0]])
