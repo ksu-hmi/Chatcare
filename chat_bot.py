@@ -133,6 +133,24 @@ def getprecautionDict():
             _prec={row[0]:[row[1],row[2],row[3],row[4]]}
             precautionDictionary.update(_prec)
 
+#In this part of the code, the severity scores of the user's entered symptoms are averaged to direct the patient to their pcp, urgent care or ER. 
+def recommend_care_facility(symptoms_exp):
+    if not symptoms_exp:
+        print("No symptoms reported.")
+        return
+
+    total_score = sum(severityDictionary.get(symptom, 0) for symptom in symptoms_exp)
+    mean_score = total_score / len(symptoms_exp)
+
+    print(f"\nAverage severity score: {mean_score:.2f}")
+
+    if mean_score < 3:
+        print("→ Based on the severity of your symptoms, you should visit your Primary Care Provider (PCP).")
+    elif 3 <= mean_score < 5:
+        print("→ Based on the severity of your symptoms, visiting an Urgent Care Center is recommended.")
+    else:
+        print("→ Based on the severity of your symptoms, please go to the Emergency Room (ER) immediately.")
+
 #In this section, the user enters their name and the ChatBot in return greets the user. 
 def getInfo():
     print("-----------------------------------HealthCare ChatBot-----------------------------------")
@@ -144,7 +162,7 @@ def getInfo():
     print(f"Hello, {name}!") #return greeting
     return name
 #store user name
-username = getInfo()
+
 
 def check_pattern(dis_list,inp):
     pred_list=[]
