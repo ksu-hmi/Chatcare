@@ -19,6 +19,8 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 #pd.read_csv is a function in panadas that is used to read data from CSV Files into a pandas DataFrame
 training = pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Training.csv")
 testing= pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Testing.csv")
+training = pd.read_csv('Data/Training.csv')
+testing= pd.read_csv('Data/Testing.csv')
 cols= training.columns
 cols= cols[:-1]
 x = training[cols]
@@ -111,6 +113,9 @@ def getDescription():
 def getSeverityDict():
     global severityDictionary
     with open('MasterData/Symptom_severity.csv") as csv_file:
+=======
+    with open('MasterData/Symptom_severity.csv') as csv_file:
+>>>>>>> 496ffac3e57b57279c79f306f0cf5f636fd18058
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -172,6 +177,7 @@ def sec_predict(symptoms_exp):
       input_vector[[symptoms_dict[item]]] = 1
 
     return rf_clf.predict([input_vector])
+
 
 def print_disease(node):
     node = node[0]
@@ -260,6 +266,7 @@ def tree_to_code(tree, feature_names):
             second_prediction=sec_predict(symptoms_exp)
             # print(second_prediction)
             calc_condition(symptoms_exp,num_days)
+            recommend_care_facility(symptoms_exp)
             if(present_disease[0]==second_prediction[0]):
                 print("You may have ", present_disease[0])
                 print(description_list[present_disease[0]])
