@@ -97,7 +97,7 @@ def calc_condition(exp,days):
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_Description.csv"). 
 def getDescription():
     global description_list
-    with open(r"C:\Users\tabby\Desktop\Python\Chatcare\MasterData\symptom_Description.csv") as csv_file:
+    with open('MasterData/symptom_Description.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
@@ -110,7 +110,7 @@ def getDescription():
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_severity.csv"). 
 def getSeverityDict():
     global severityDictionary
-    with open(r"C:\Users\tabby\Desktop\Python\Chatcare\MasterData\Symptom_severity.csv") as csv_file:
+    with open('MasterData/Symptom_severity.csv") as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -125,7 +125,7 @@ def getSeverityDict():
 # A path is created for symptom/severity pairs for easy access.
 def getprecautionDict():
     global precautionDictionary
-    with open(r"C:\Users\tabby\Desktop\Python\Chatcare\MasterData\symptom_precaution.csv") as csv_file:
+    with open('MasterData/symptom_precaution.csv') as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -143,8 +143,6 @@ def getInfo():
         print("Name cannot be empty. Please try again.")
     print(f"Hello, {name}!") #return greeting
     return name
-#store user name
-username = getInfo()
 
 def check_pattern(dis_list,inp):
     pred_list=[]
