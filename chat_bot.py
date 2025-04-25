@@ -111,9 +111,6 @@ def getDescription():
 def getSeverityDict():
     global severityDictionary
     with open('MasterData/Symptom_severity.csv") as csv_file:
-=======
-    with open('MasterData/Symptom_severity.csv') as csv_file:
->>>>>>> 496ffac3e57b57279c79f306f0cf5f636fd18058
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
