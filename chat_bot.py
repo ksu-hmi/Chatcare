@@ -17,8 +17,8 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 #For example, training = pd.read_csv(r"C:\Users\pathname\Python\Chatcare\Tra\ining.csv"). 
 #This second section reads training and testing data from those csv files
 #pd.read_csv is a function in panadas that is used to read data from CSV Files into a pandas DataFrame
-training = pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Training.csv")
-testing= pd.read_csv(r"C:\Users\tabby\Desktop\Python\Chatcare\Data\Testing.csv")
+training = pd.read_csv('Data/Training.csv')
+testing= pd.read_csv('Data/Testing.csv')
 cols= training.columns
 cols= cols[:-1]
 x = training[cols]
@@ -97,7 +97,7 @@ def calc_condition(exp,days):
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_Description.csv"). 
 def getDescription():
     global description_list
-    with open(r"C:\Users\tabby\Desktop\Python\Chatcare\MasterData\symptom_Description.csv") as csv_file:
+    with open(' MasterData/symptom_Description.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
@@ -110,7 +110,7 @@ def getDescription():
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_severity.csv"). 
 def getSeverityDict():
     global severityDictionary
-    with open(r"C:\Users\tabby\Desktop\Python\Chatcare\MasterData\Symptom_severity.csv") as csv_file:
+    with open('MasterData/Symptom_severity.csv') as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -125,7 +125,7 @@ def getSeverityDict():
 # A path is created for symptom/severity pairs for easy access.
 def getprecautionDict():
     global precautionDictionary
-    with open(r"C:\Users\tabby\Desktop\Python\Chatcare\MasterData\symptom_precaution.csv") as csv_file:
+    with open('MasterData/symptom_precaution.csv') as csv_file:
 
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
