@@ -35,6 +35,8 @@ le = preprocessing.LabelEncoder()
 le.fit(y)
 y = le.transform(y)
 
+#Dataset information provides the information for test target.  
+#In this code the transformation test target is set.
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.33, random_state=42)
 testx    = testing[cols]
 testy    = testing['prognosis']  
@@ -50,11 +52,13 @@ scores = cross_val_score(clf, x_test, y_test, cv=3)
 # print (scores)
 print (scores.mean())
 
+#The model is set to show the train SVM classifier
 model=SVC()
 model.fit(x_train,y_train)
-print("for svm: ")
+print("For SVM accuracy: ")
 print(model.score(x_test,y_test))
 
+#Feature importance for future use.
 importances = clf.feature_importances_
 indices = np.argsort(importances)[::-1]
 features = cols
