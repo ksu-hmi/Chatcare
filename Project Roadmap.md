@@ -28,15 +28,15 @@ Sprint #1:\
 
 Sprint #2: \
 
--[] Develop code for project (JM, CP, & TC)
+-[Done] Develop code for project (JM, CP, & TC)
 
--[] Test code (JM)
+-[Done] Test code (JM)
 
--[] Debug and fix issues from code (JM & TC)
+-[Done] Debug and fix issues from code (JM & TC)
 
 -[] Each member commits 6 significant changes with detailed explanations (JM, CP, & TC)
 
--[] Track progress on planned projectroadmap.md file by checking boxes or adding new tasks (TC)
+-[Done] Track progress on planned projectroadmap.md file by checking boxes or adding new tasks (TC)
 
 Sprint #3:\ 
 
