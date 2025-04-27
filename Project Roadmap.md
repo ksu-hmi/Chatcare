@@ -34,7 +34,7 @@ Sprint #2: \
 
 -[Done] Debug and fix issues from code (JM & TC)
 
--[] Each member commits 6 significant changes with detailed explanations (JM, CP, & TC)
+-[Done] Each member commits 6 significant changes with detailed explanations (JM, CP, & TC)
 
 -[Done] Track progress on planned projectroadmap.md file by checking boxes or adding new tasks (TC)
 
