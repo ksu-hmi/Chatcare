@@ -95,7 +95,7 @@ def calc_condition(exp,days):
     if((sum*days)/(len(exp)+1)>13):
         print("After this many days, you should visit one of three: Primary Care, Urgent care, or ER. Recommendations on where to go exactly will follow.")
     else:
-        print("This diagnosis maybe inaccurate, but you should take precautions.")
+        print("This prognosis may be inaccurate, but you should take precautions.")
 
 #In this section, the symptom_Description.csv must be updated to show your file path in Visual Studio Code before the code will run. 
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_Description.csv"). 
