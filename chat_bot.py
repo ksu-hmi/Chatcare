@@ -95,7 +95,7 @@ def calc_condition(exp,days):
     if((sum*days)/(len(exp)+1)>13):
         print("After this many days, you should visit one of three: Primary Care, Urgent care, or ER. Recommendations on where to go exactly will follow.")
     else:
-        print("It might not be that bad but you should take precautions.")
+        print("This diagnosis maybe inaccurate, but you should take precautions.")
 
 #In this section, the symptom_Description.csv must be updated to show your file path in Visual Studio Code before the code will run. 
 #For example, (r"C:\Users\pathname\Python\Chatcare\symptom_Description.csv"). 
@@ -156,8 +156,8 @@ def recommend_care_facility(symptoms_exp):
         print("→ Based on the severity of your symptoms, please go to the Emergency Room (ER) immediately.")
 
 #In this section, the user enters their name and the ChatBot in return greets the user. 
+print("-----------------------------------Welcome to Chat Care-----------------------------------")
 def getInfo():
-    print("-----------------------------------Welcome to Chat Care-----------------------------------")
     while True:
         name = input("\nPlease Enter Your Name? \t\t\t\t->").strip()
         if name:
