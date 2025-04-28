@@ -40,13 +40,13 @@ Sprint #2: \
 
 Sprint #3:\ 
 
--[] Continue to develop and refine code (JM, CP, & TC)
+-[Done] Continue to develop and refine code (JM, CP, & TC)
 
--[] Each member commits significant changes and track progress on projectroadmap.md file (JM, CP, & TC)
+-[Done] Each member commits significant changes and track progress on projectroadmap.md file (JM, CP, & TC)
 
--[] Final review of code by entire team to ensure it runs properly (JM, CP, & TC)
+-[Done] Final review of code by entire team to ensure it runs properly (JM, CP, & TC)
 
--[] Create a PowerPoint presentation (JM, CP, & TC)
+-[Done] Create a PowerPoint presentation (JM, CP, & TC)
 
 -[] Update needed material in KSU-HMI including presentation\ 
 
