@@ -48,10 +48,10 @@ Sprint #3:\
 
 -[Done] Create a PowerPoint presentation (JM, CP, & TC)
 
--[] Update needed material in KSU-HMI including presentation\ 
+-[Done] Update needed material in KSU-HMI including presentation\ 
 
--[]  Schedule meeting time in teams for presentation\  
+-[Done]  Schedule meeting time in teams for presentation\  
 
--[]  Present project with PowerPoint for class\  
+-[Done]  Present project with PowerPoint for class\  
 
--[] Celebrate the end!\ 
+-[Done] Celebrate the end!\ 
