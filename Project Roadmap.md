@@ -50,6 +50,8 @@ Sprint #3:\
 
 -[] Update needed material in KSU-HMI including presentation\ 
 
+-[]  Schedule meeting time in teams for presentation\  
+
 -[]  Present project with PowerPoint for class\  
 
 -[] Celebrate the end!\ 
